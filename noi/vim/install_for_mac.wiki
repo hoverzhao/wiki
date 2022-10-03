@@ -1,0 +1,4 @@
+https://sourceware.org/gdb/wiki/PermissionsDarwin
+vim执行命令
+:!open <c-r><c-a> <cr>
+光标放在链接上后 ，直接按回车，就可以显示网页

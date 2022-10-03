@@ -1,0 +1,88 @@
+= use .wiki suffix =
+
+normal模式，生成标题, 按=号，按-号
+生成列表 	gl*(-,1,a)，o
+				gll
+			glh
+			* lesson1
+			a) sksksksk
+			b) skskkd
+			c) tiidkls
+				a) 
+			d) 
+
+
+修改同级列表			gL*(-,1,a),
+
+	* [X] finish math homework
+	* [ ] sksksk
+	* [ ] ksksks
+	* [X] ksks
+		* [X] dkkdkd
+		* [X] 
+
+
+添加钩(check)	[-,1,a] check  press <ctrl+space>/<leader>wl
+	选中		<leader>wl
+	删除		gl+space
+	父子级		gll (支持
+		a) [X] aaa
+		b) [o] 
+			a) [ ] 
+			b) [X] 
+
+[[ppp.txt]]
+链接	[[test.cpp| link to test.cpp]]  	press <cr>
+			
+*Hello*			*粗体 `代码行 _斜体 {{{代码块
+`int a;`
+_hello_
+
+{{{cpp
+	void box(int a, int b) {
+		return a + b;
+	}
+	
+}}}
+
+{{{python
+	def foo(arg):
+		return []
+}}}
+
+:h vimwiki-mappings
+:h vimwiki-local-mappings
+
+	1. <Leader>ww -- Open default wiki index file.
+	2. <Leader>wt -- Open default wiki index file in a new tab.
+	3. [X] <Leader>ws -- Select and open wiki index file.
+	4. [X] <Leader>wi -- 创建日记 diary.wiki
+		a) [X] <leader>w<leader>w --创建今天日记 <backspace>
+		b) [X] 创建日记索引 跳回到diary.wiki后 -- <leader>w<leader>i	 
+	5. [ ] <Leader>whh -- 使用浏览器显示wiki
+	6. <Leader>wd -- Delete wiki file you are in.
+	7. <Leader>wr -- Rename wiki file you are in.
+	8. <Enter> -- Follow/Create wiki link.
+	9. <Shift-Enter> -- Split and follow/create wiki link.
+	10. <Ctrl-Enter> -- Vertical split and follow/create wiki link.
+	11. <Backspace> -- Go back to parent(previous) wiki link.
+	12. <Tab> -- Find next wiki link.
+
+.vimrc
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+<Shift-Tab> -- Find previous wiki link.
+
+index.wiki 导航
+
+.vimrc 中添加wiki目录，可以是多个
+let g:vimwiki_list = [{'path': '/wiki/competition/ol/'},
+			\ {'path': '/wiki/personal'}]
+<leader>ww
+1<leader>ww
+2<leader>www
+
+复制文件名绝对路径
+nnoremap <leader>yf :let @+=expand("%:p") <cr>
+复制文件名，相对路径
+nnoremap <leader>yf :let @+=expand("%") <cr>

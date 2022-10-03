@@ -1,0 +1,22 @@
+1. macos 再lunchpad中双击 docker图标，启动docker
+
+https://hub.docker.com/r/chenluqq/codecombat
+2. docker pull chenluqq/codecombat
+3. docker run -i -t -p 50001:22 -p 3001:3000 chenluqq/codecombat /usr/sbin/sshd -D
+
+****** 4. 5步中都包含两条指令，需要分开执行
+sshpass -p 123 ssh -p 50001 chenlu@127.0.0.1
+4. ssh -p 50001 chenlu@127.0.0.1 
+   cd codecombat && ./bin/coco-mongodb
+5. ssh -p 50001 chenlu@127.0.0.1 
+   cd codecombat && npm run dev
+6. dump.tar.gz
+7. http://localhost:3001/account/settings
+   注册用户名: miaomiaoxianshi 密码：typw
+   再次打开网址http://localhost:3001/account/settings，勾选管理、上帝模式
+
+8. 更新金币的数量
+	docker exec -it myco /bin/bash
+	mongo
+	use coco
+	db.users.update({'name':'xxxxx'},{$set:{'earned.gems':9999999,permissions:["godmode","admin"]}},true,false); ?????-?? https://www.bilibili.com/read/cv14836748/ ???bilibili

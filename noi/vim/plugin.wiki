@@ -1,0 +1,2 @@
+https://github.com/junegunn/vim-plug
+:!open <c-r><c-a>	//vim中打开网页链接方法
