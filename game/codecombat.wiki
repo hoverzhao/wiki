@@ -11,11 +11,22 @@ sshpass -p 123 ssh -p 50001 chenlu@127.0.0.1
 5. ssh -p 50001 chenlu@127.0.0.1 
    cd codecombat && npm run dev
 6. dump.tar.gz
-7. http://localhost:3001/account/settings
+	安装游戏数据库
+	a. 下载游戏关卡数据库导出文件
+	wget http://analytics.codecombat.com:8080/dump.tar.gz
+	b. 解压这个文件&#160;
+	tar zxvf dump.tar.gz
+	c. 向MongoDB导入下载数据
+	mongorestore --drop --noIndexRestore path/to/dump/coco --db coco
+	注意命令中的“path/to/dump”是你解压出来的dump目录的路径。
+	
+	https://www.bilibili.com/read/cv14836748
+8. http://localhost:3001/account/settings
    注册用户名: miaomiaoxianshi 密码：typw
+   注册教师用户
    再次打开网址http://localhost:3001/account/settings，勾选管理、上帝模式
 
-8. 更新金币的数量
+10. 更新金币的数量
 	docker exec -it myco /bin/bash
 	mongo
 	use coco
